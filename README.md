@@ -2,7 +2,7 @@
 
 Antes de clonar y ejecutar el proyecto, asegúrate de tener instalado y configurado lo siguiente:
 
-#### 1. Python 3.10+
+### 1. Python 3.10+
 Verifica la instalación con:
 ```Windows (PowerShell)
 python --version
@@ -11,20 +11,22 @@ python --version
 python3 --version
 ```
 
-#### 2. pip (Administrador de paquetes de Python)
+### 2. pip (Administrador de paquetes de Python)
 Viene incluido en la mayoría de instalaciones de Python. Verifica con:
 ```Windows (PowerShell)
 pip --version
 ```
 
-#### 3. MongoDB en local
+### 3. MongoDB en local
 Descarga [MongoDB Compass](https://www.mongodb.com/try/download/community) para explorar y administrar la base de datos con interfaz gráfica.
 
-#### 4. Git (para clonar el repositorio). 
+### 4. Git (para clonar el repositorio). 
 Verifica la instalación con:
 ```Windows (PowerShell)
 git --version
 ```
+
+---
 
 ## Clonacion del proyecto con Git
 ```Windows (PowerShell)
@@ -65,6 +67,9 @@ deactivate
 ```linux/os (bash)
 deactivate
 ```
+
+---
+## Ejecusion de proyecto
 
 ### Ejecutar servidor local (Generación de cache)
 ```
