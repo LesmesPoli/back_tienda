@@ -53,6 +53,10 @@ PYTHONDONTWRITEBYTECODE=1 uvicorn app.main:app --reload
 
 Ruta de consultas de fastAPI [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
+---
+
+## 📂 Endpoints disponibles
+
 #### 1. Usuarios
 
 - POST /MongoDB/usuarios → Crear usuario
