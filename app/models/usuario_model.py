@@ -1,9 +1,11 @@
 from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
-from datetime import datetime
 from bson import ObjectId
 
 
+# -------------------
+# Helper para ObjectId de Mongo (Pydantic v2)
+# -------------------
 class PyObjectId(ObjectId):
     @classmethod
     def __get_validators__(cls):
@@ -16,8 +18,10 @@ class PyObjectId(ObjectId):
         return ObjectId(v)
 
     @classmethod
-    def __modify_schema__(cls, field_schema):
-        field_schema.update(type="string")
+    def __get_pydantic_json_schema__(cls, core_schema, handler):
+        schema = handler(core_schema)
+        schema.update(type="string")
+        return schema
 
 
 # -------------------
@@ -30,17 +34,15 @@ class Usuario(BaseModel):
     contraseña: str = Field(..., min_length=6)
     rol: str = Field(..., description="Puede ser 'admin' o 'cliente'")
     activo: bool = True
-    fecha_creacion: datetime = Field(default_factory=datetime.utcnow)
 
     class Config:
-        json_encoders = {ObjectId: str, datetime: str}
-        schema_extra = {
+        json_encoders = {ObjectId: str}
+        json_schema_extra = {
             "example": {
                 "nombre": "Juan Pérez",
                 "correo": "juan@example.com",
                 "contraseña": "123456",
                 "rol": "admin",
-                "activo": True,
-                "fecha_creacion": "2025-09-03T12:00:00"
+                "activo": True
             }
         }
