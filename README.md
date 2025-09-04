@@ -1,5 +1,33 @@
+## pre requisitos
+
+Antes de clonar y ejecutar el proyecto, asegúrate de tener instalado y configurado lo siguiente:
+
+#### 1. Python 3.10+
+Verifica la instalación con:
+```Windows (PowerShell)
+python --version
+```
+```linux/os (bash)
+python3 --version
+```
+
+#### 2. pip (Administrador de paquetes de Python)
+Viene incluido en la mayoría de instalaciones de Python. Verifica con:
+```Windows (PowerShell)
+pip --version
+```
+
+#### 3. MongoDB en local
+Descarga [MongoDB Compass](https://www.mongodb.com/try/download/community) para explorar y administrar la base de datos con interfaz gráfica.
+
+#### 4. Git (para clonar el repositorio). 
+Verifica la instalación con:
+```Windows (PowerShell)
+git --version
+```
+
 ## Clonacion del proyecto con Git
-```powershell
+```Windows (PowerShell)
 git clone https://github.com/LesmesPoli/back_tienda.git
 ``` 
 
