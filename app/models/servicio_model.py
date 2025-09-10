@@ -28,7 +28,7 @@ class PyObjectId(ObjectId):
 # Modelo Servicio
 # -------------------
 class Servicio(BaseModel):
-    id: Optional[PyObjectId] = Field(alias="_id")
+    id: Optional[PyObjectId] = Field(default=None, alias="_id")
     nombre: str = Field(..., min_length=3, max_length=100)
     descripcion: str = Field(..., min_length=10, max_length=300)
     precio: float = Field(..., gt=0, description="Precio del servicio")
