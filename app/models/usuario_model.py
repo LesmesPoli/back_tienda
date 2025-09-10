@@ -28,12 +28,16 @@ class PyObjectId(ObjectId):
 # Modelo Usuario
 # -------------------
 class Usuario(BaseModel):
-    id: Optional[PyObjectId] = Field(alias="_id")
+    id: Optional[PyObjectId] = Field(default=None, alias="_id")
     nombre: str = Field(..., min_length=2, max_length=50)
     correo: EmailStr
-    contraseña: str = Field(..., min_length=6)
+    contrasena: str = Field(..., min_length=6)
     rol: str = Field(..., description="Puede ser 'admin' o 'cliente'")
     activo: bool = True
+
+    def to_mongo(self):
+        """Convierte a dict para Mongo, excluyendo el _id si está vacío"""
+        return self.dict(by_alias=True, exclude_unset=True, exclude={"id"})
 
     class Config:
         json_encoders = {ObjectId: str}
@@ -41,7 +45,7 @@ class Usuario(BaseModel):
             "example": {
                 "nombre": "Juan Pérez",
                 "correo": "juan@example.com",
-                "contraseña": "123456",
+                "contrasena": "123456",
                 "rol": "admin",
                 "activo": True
             }

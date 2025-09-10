@@ -18,7 +18,7 @@ def check_db():
 # ---------------------------
 @router.post("/usuarios", tags=["Usuarios"])
 def crear_usuario(usuario: Usuario):
-    usuario_id = mongoDB.crear_usuario(usuario.dict())
+    usuario_id = mongoDB.crear_usuario(usuario.to_mongo())
     return {"id": usuario_id}
 
 @router.get("/usuarios", tags=["Usuarios"])
@@ -49,7 +49,7 @@ def eliminar_usuario(usuario_id: str):
 # ---------------------------
 @router.post("/servicios", tags=["Servicios"])
 def crear_servicio(servicio: Servicio):
-    servicio_id = mongoDB.crear_servicio(servicio.dict())
+    servicio_id = mongoDB.crear_servicio(servicio.to_mongo())
     return {"id": servicio_id}
 
 @router.get("/servicios", tags=["Servicios"])
